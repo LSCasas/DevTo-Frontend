@@ -4,7 +4,7 @@ const Sidebar = () => {
   return (
     <div className="hidden lg:block mx-2">
       {/* Primera sección */}
-      <section className="container1">
+      <section className="container1 text-black">
         <div className="bg-white rounded-lg shadow-inner">
           <div className="p-4 border-b border-gray-200">
             <h3 className="text-gray-600">
@@ -48,7 +48,7 @@ const Sidebar = () => {
       </section>
 
       {/* Segunda sección */}
-      <section className="container1 mt-4">
+      <section className="container1 mt-4 text-black">
         <div className="bg-white rounded-lg shadow-inner">
           <div className="p-4 border-b border-gray-200">
             <h3 className="text-gray-600">
@@ -66,7 +66,7 @@ const Sidebar = () => {
       </section>
 
       {/* Tercera sección */}
-      <section className="container2 mt-4">
+      <section className="container2 mt-4 text-black">
         <div className="border-b border-gray-200">
           <div className="p-4">
             <h4 className="text-gray-600">trending guides/resources</h4>
@@ -116,7 +116,7 @@ const Sidebar = () => {
       </section>
 
       {/* Cuarta sección */}
-      <section className="container2 mt-4">
+      <section className="container2 mt-4 text-black">
         <div className="border-b border-gray-200">
           <div className="p-4">
             <h4 className="text-gray-600">recently queried</h4>
