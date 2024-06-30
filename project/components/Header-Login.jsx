@@ -1,6 +1,6 @@
 
 
-const Header = () => {
+const HeaderLogin = () => {
   return (
     <div className="flex flex-col items-center">
       <img
@@ -16,4 +16,4 @@ const Header = () => {
   );
 };
 
-export default Header;
+export default HeaderLogin;
