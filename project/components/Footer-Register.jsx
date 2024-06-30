@@ -22,12 +22,8 @@ export default function FooterRegister() {
         
         
         </ul>
-        <ul className="flex justify-center space-x-4 text-sm mt-2">
-          <li>Code of Conduct</li>
-          <li>Privacy Policy</li>
-          <li>Terms of use</li>
-        </ul>
-        <p className="text-sm mt-2">Built on Forem — the open source software that powers DEV and other inclusive communities.</p>
+       
+       
         <p className="text-sm mt-1">Made with love and Ruby on Rails. DEV Community © 2016 - 2024.</p>
       </footer>
     );
