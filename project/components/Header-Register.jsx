@@ -1,3 +1,4 @@
+import Devto from "./DevtoLogo";
 
 
 const HeaderRegister = () => {
@@ -7,7 +8,7 @@ const HeaderRegister = () => {
         <nav className="navbar navbar-expand-sm">
           <div className="container-fluid">
             <a className="navbar-brand" href="#">
-              <img src="../img/logo.png" alt="Logo" className="h-10" />
+            <Devto height="4rem" width="3rem" />
             </a>
           </div>
         </nav>

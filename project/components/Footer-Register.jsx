@@ -1,27 +1,35 @@
+export default function FooterRegister() {
+    return (
+      <footer className="bg-gray-800 text-white py-4 text-center">
+        <p className="text-sm">DEV Community — A constructive and inclusive social network for software developers. With you every step of your journey.</p>
+        <ul className="flex justify-center space-x-4 text-sm mt-2">
+          <li>Home</li>
+          <li>Podcasts</li>
+          <li>Videos</li>
+          <li>DEV Help</li>
+          <li>Forem Shop</li>
+        
+        
+        </ul>
 
-
-const FooterRegister = () => {
-  return (
-    <footer className="bg-gray-800 text-white py-6 text-center">
-      <p className="mb-4">DEV Community — A constructive and inclusive social network for software developers. With you every step of your journey.</p>
-      <ul className="flex flex-wrap justify-center mb-4 space-x-2">
-        {['Home', 'Podcasts', 'Videos', 'DEV Help', 'Forem Shop', 'Advertise on DEV', 'DEV Showcase', 'About', 'Contact', 'Guides', 'Software Comparisons'].map((item, index) => (
-          <li key={index} className="mx-2">
-            {item} {index < 10 && <span className="ml-2">•</span>}
-          </li>
-        ))}
-      </ul>
-      <ul className="flex flex-wrap justify-center mb-4 space-x-2">
-        {['Code of Conduct', 'Privacy Policy', 'Terms of use'].map((item, index) => (
-          <li key={index} className="mx-2">
-            {item} {index < 2 && <span className="ml-2">•</span>}
-          </li>
-        ))}
-      </ul>
-      <p className="mb-4">Built on Forem — the open source software that powers DEV and other inclusive communities.</p>
-      <p className="mb-4">Made with love and Ruby on Rails. DEV Community © 2016 - 2024.</p>
-    </footer>
-  );
-};
-
-export default FooterRegister;
+        <ul className="flex justify-center space-x-4 text-sm mt-2">
+        <li>Advertise on DEV</li>
+        <li>DEV Showcase</li>
+        <li>About</li>
+        <li>Contact</li>
+        <li>Guides</li>
+       
+        
+        
+        </ul>
+        <ul className="flex justify-center space-x-4 text-sm mt-2">
+          <li>Code of Conduct</li>
+          <li>Privacy Policy</li>
+          <li>Terms of use</li>
+        </ul>
+        <p className="text-sm mt-2">Built on Forem — the open source software that powers DEV and other inclusive communities.</p>
+        <p className="text-sm mt-1">Made with love and Ruby on Rails. DEV Community © 2016 - 2024.</p>
+      </footer>
+    );
+  }
+  
