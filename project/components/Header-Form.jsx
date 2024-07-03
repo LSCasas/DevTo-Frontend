@@ -2,11 +2,11 @@ import React from 'react';
 
 const HeaderForm = () => {
   return (
-    <header className="header-form bg-white py-4 px-6 shadow text-black">
+    <header className="header-form bg-none py-4 px-6 shadow text-black">
       <div className="header-container flex items-center justify-between">
         
         {/* División para el logo */}
-        <div className="w-1/4 flex items-center">
+        <div className="w-1/4 flex items-center ml-14">
           <div className="site-logo">
             <img
               className="site-logo-img w-16 h-auto"
@@ -30,7 +30,7 @@ const HeaderForm = () => {
         </div>
         
         {/* División para el botón con la imagen */}
-        <div className="w-1/4 flex items-center justify-end">
+        <div className="w-1/4 flex items-center justify-end" >
           <button className="btn-styles p-1">
             <img src="../img/svgs/cancel.svg" alt="Close" className="w-8 h-8" />
           </button>

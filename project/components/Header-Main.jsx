@@ -29,7 +29,7 @@ const HeaderMain = () => {
         </div>
         {/* Search */}
         <div className="flex-1 ml-4 md:ml-8">
-          <div className="relative">
+          <div className="relative w-1/2">
             <input
               type="text"
               placeholder="Search..."

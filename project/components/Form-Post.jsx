@@ -2,10 +2,10 @@ import React from 'react';
 
 const FormularioPost = () => {
   return (
-    <form id="form-data" className="m-0 bg-transparent text-black">
+    <form id="form-data" className="m-0 bg-transparent text-black max-w-4xl mx-auto ml-2">
       <div className="flex flex-col gap-4 p-4 bg-transparent">
         {/* Primer div: card-form-top */}
-        <div className="card-form-top bg-white p-4">
+        <div className="card-form-top bg-white p-4 rounded-md" >
           <input
             className="input-tags my-4 w-3/12"
             type="text"
@@ -13,7 +13,7 @@ const FormularioPost = () => {
             name="img"
           />
           <input
-            className="title-form w-full"
+            className="title-form w-full text-5xl text-gray-800"
             type="text"
             placeholder="New post title here..."
             name="title"
@@ -22,7 +22,7 @@ const FormularioPost = () => {
           <div className="flex items-center">
             <div id="labelContainer"></div>
             <input
-              className="input-tags w-full"
+              className="input-tags w-full mt-3"
               type="text"
               placeholder="Add up to 4 tags"
               name="tags"
@@ -51,7 +51,7 @@ const FormularioPost = () => {
         </div>
         
         {/* Segundo div: iconos-svgs */}
-        <div className="iconos-svgs p-4 flex gap-1 justify-start">
+        <div className="iconos-svgs p-4 flex gap-1 justify-start bg-transparent">
           <button className="btn-styles">
             <img src="/img/svgs/B.svg" alt="B" />
           </button>
@@ -91,7 +91,7 @@ const FormularioPost = () => {
         </div>
         
         {/* Tercer div: form-floating */}
-        <div className="form-floating bg-white p-4">
+        <div className="form-floating bg-white p-4 rounded-md">
           <textarea
             className="parrafo-form py-4 w-full mx-4 resize-y text-gray-400"
             placeholder="Write your post content here..."
@@ -123,4 +123,5 @@ const FormularioPost = () => {
 }
 
 export default FormularioPost;
+
 
