@@ -1,7 +1,6 @@
 import Aside from '@/components/Aside-Main';
 import Global from '@/components/Global-Main';
 import HeaderMain from '@/components/Header-Main';
-
 import Sidebar from '@/components/Sidebar-Main';
 
 const App = () => {
