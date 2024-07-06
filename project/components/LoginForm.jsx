@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useRouter } from 'next/router';
+import { toast } from 'sonner'; // Asumiendo que `sonner` es compatible con Next.js
 
 export default function LoginForm() {
   const [email, setEmail] = useState('');
@@ -30,6 +31,8 @@ export default function LoginForm() {
 
       if (response.ok && data.success) {
         console.log("Inicio de sesión exitoso");
+        localStorage.setItem('token', data.token); // Guardar token en localStorage
+        toast.success('Bienvenido');
         router.push('/main'); // Redirigir a /main después del login exitoso
       } else if (response.status === 401 && data.message === 'Incorrect password') {
         setError('Contraseña incorrecta. Por favor, intenta de nuevo.');
@@ -47,6 +50,10 @@ export default function LoginForm() {
     }
   };
 
+  const handleRegister = () => {
+    router.push('/register'); // Redirigir a la página de registro al hacer clic en el botón Register
+  };
+
   return (
     <div className="bg-white rounded-lg shadow-lg p-8 max-w-md w-full">
       <h2 className="mb-4 text-center text-2xl font-bold text-black">Login</h2>
@@ -62,11 +69,15 @@ export default function LoginForm() {
         {error && <div className="text-red-500 mb-4">{error}</div>}
         <div className="text-center">
           <button type="submit" className="w-full py-2 px-4 bg-gray-800 text-white rounded-md hover:bg-gray-700">Log in</button>
+          <button type="button" onClick={handleRegister} className="mt-4 w-full py-2 px-4 bg-blue-500 text-white rounded-md hover:bg-blue-700">Register</button>
         </div>
       </form>
     </div>
   );
 }
+
+
+
 
 
 
