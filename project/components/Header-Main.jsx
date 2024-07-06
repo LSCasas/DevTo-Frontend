@@ -1,6 +1,18 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
 const HeaderMain = () => {
+  const [token, setToken] = useState('');
+
+  useEffect(() => {
+    // Verificar si localStorage está disponible (solo en el cliente)
+    if (typeof window !== 'undefined') {
+      const storedToken = localStorage.getItem('token');
+      if (storedToken) {
+        setToken(storedToken);
+      }
+    }
+  }, []);
+
   return (
     <header className="bg-white shadow-md sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8 flex items-center h-16">
@@ -51,15 +63,20 @@ const HeaderMain = () => {
         </div>
         {/* Auth Links */}
         <div className="flex items-center ml-auto space-x-4">
-          {/* Mobile Account and Login */}
-          <span className="hidden md:flex">
-            <a href="./login/login.html" className="text-gray-700 hover:text-blue-700">
-              Log in
-            </a>
-          </span>
-          <a href="#" className="text-blue-700 border border-blue-700 px-4 py-2 rounded-md hover:bg-blue-700 hover:text-white">
-            Create account
-          </a>
+          {/* Conditional rendering based on token */}
+          {!token && (
+            <>
+              {/* Mobile Account and Login */}
+              <span className="hidden md:flex">
+                <a href="./login/login.html" className="text-gray-700 hover:text-blue-700">
+                  Log in
+                </a>
+              </span>
+              <a href="#" className="text-blue-700 border border-blue-700 px-4 py-2 rounded-md hover:bg-blue-700 hover:text-white">
+                Create account
+              </a>
+            </>
+          )}
         </div>
       </div>
     </header>
@@ -67,4 +84,6 @@ const HeaderMain = () => {
 };
 
 export default HeaderMain;
+
+
 
