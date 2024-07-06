@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
+import { useRouter } from 'next/router';
 
 const HeaderMain = () => {
+  const router = useRouter();
   const [token, setToken] = useState('');
 
   useEffect(() => {
@@ -12,6 +14,18 @@ const HeaderMain = () => {
       }
     }
   }, []);
+
+  const handleLogin = () => {
+    router.push('/login');
+  };
+
+  const handleRegister = () => {
+    router.push('/register');
+  };
+
+  const handleCreatePost = () => {
+    router.push('/posts'); // Redirige a la ruta /posts
+  };
 
   return (
     <header className="bg-white shadow-md sticky top-0 z-50">
@@ -64,17 +78,27 @@ const HeaderMain = () => {
         {/* Auth Links */}
         <div className="flex items-center ml-auto space-x-4">
           {/* Conditional rendering based on token */}
-          {!token && (
+          {token ? (
+            <button
+              className="bg-blue-500 hover:bg-blue-700 text-white px-4 py-2 rounded-md transition-colors duration-300"
+              onClick={handleCreatePost}
+            >
+              Create post
+            </button>
+          ) : (
             <>
               {/* Mobile Account and Login */}
               <span className="hidden md:flex">
-                <a href="./login/login.html" className="text-gray-700 hover:text-blue-700">
+                <button className="text-gray-700 hover:text-blue-700" onClick={handleLogin}>
                   Log in
-                </a>
+                </button>
               </span>
-              <a href="#" className="text-blue-700 border border-blue-700 px-4 py-2 rounded-md hover:bg-blue-700 hover:text-white">
+              <button
+                className="text-blue-700 border border-blue-700 px-4 py-2 rounded-md hover:bg-blue-700 hover:text-white transition-colors duration-300"
+                onClick={handleRegister}
+              >
                 Create account
-              </a>
+              </button>
             </>
           )}
         </div>
@@ -84,6 +108,9 @@ const HeaderMain = () => {
 };
 
 export default HeaderMain;
+
+
+
 
 
 

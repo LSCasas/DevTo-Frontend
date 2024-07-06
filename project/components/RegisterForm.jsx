@@ -1,11 +1,11 @@
 import React, { useEffect } from "react";
-import { createUser } from "../api/api";
+import { createUser } from "../api/createUser";
 
 export default function RegisterForm() {
   useEffect(() => {
     const registerForm = document.getElementById("registerForm");
 
-    const handleSubmit = (event) => {
+    const handleSubmit = async (event) => {
       event.preventDefault();
       const formData = new FormData(registerForm);
 
@@ -16,19 +16,25 @@ export default function RegisterForm() {
         password: formData.get("password"),
       };
 
-      createUser(data)
-        .then((response) => response.json())
-        .then((json) => {
-          if (json.success) {
-            window.location.href = "/login";
-          } else {
-            alert(json.message || "Error en el registro");
-          }
-        })
-        .catch((error) => {
-          console.error("Error:", error);
-          alert("Error en el servidor. Por favor, intente de nuevo más tarde.");
-        });
+      try {
+        const response = await createUser(data);
+        console.log("Response:", response); // Debugging: Log response to console
+
+        if (response && response.user) {
+          // Acceder a los datos del usuario
+          const { name, email } = response.user;
+          console.log("User:", name, email);
+
+          // Redirigir a la página de inicio de sesión
+          window.location.href = "/login";
+        } else {
+          console.error("Registration error:", response);
+          alert(response?.message || "Error en el registro"); // Mostrar mensaje de error del servidor
+        }
+      } catch (error) {
+        console.error("Error en la solicitud:", error);
+        alert("Error en el servidor. Por favor, intente de nuevo más tarde.");
+      }
     };
 
     registerForm.addEventListener("submit", handleSubmit);
@@ -66,5 +72,8 @@ export default function RegisterForm() {
   );
 }
 
+
+
+  
 
   
