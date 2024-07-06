@@ -1,9 +1,10 @@
+import React from 'react';
 import { useForm } from 'react-hook-form';
 import { useRouter } from 'next/router';
 import { toast } from 'sonner';
 import clsx from 'clsx';
 import { useState } from 'react';
-import { login } from '../api/login'; // Importar la función login desde tu archivo API
+import { login } from '../api/login';
 
 export default function LoginForm() {
   const { register, handleSubmit, formState: { errors }, setError } = useForm();
@@ -12,16 +13,16 @@ export default function LoginForm() {
 
   const onSubmit = async (data) => {
     try {
-      const result = await login(data.email, data.password); // Llamar a la función login desde tu API
+      const result = await login(data.email, data.password);
 
-      console.log(result); // Agrega esto para verificar la respuesta del servidor
+      console.log(result); // Log para verificar la respuesta del servidor
 
       if (result.success && result.data.token) {
-        window.localStorage.setItem('token', result.data.token); // Guardar token en localStorage
+        localStorage.setItem('token', result.data.token);
+        localStorage.setItem('email', data.email); // Almacenar email para comparaciones futuras
         toast.success('Bienvenido');
-        router.push('/main'); // Redirigir a /main después del login exitoso
+        router.push('/main');
       } else {
-        // Manejar errores específicos
         if (result.message === 'Incorrect password') {
           setError('password', { type: 'manual', message: 'Contraseña incorrecta. Por favor, intenta de nuevo.' });
         } else if (result.message === 'User not found') {
@@ -32,12 +33,12 @@ export default function LoginForm() {
       }
     } catch (error) {
       setError('form', { type: 'manual', message: 'Error en el servidor. Por favor, intente de nuevo más tarde.' });
-      console.error("Error en el manejo de la solicitud:", error);
+      console.error('Error en el manejo de la solicitud:', error);
     }
   };
 
   const handleRegister = () => {
-    router.push('/register'); // Redirigir a la página de registro al hacer clic en el botón Register
+    router.push('/register');
   };
 
   const handleShowHidePassword = () => {
@@ -85,6 +86,7 @@ export default function LoginForm() {
     </div>
   );
 }
+
 
 
 

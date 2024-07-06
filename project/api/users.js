@@ -1,4 +1,4 @@
-const API_URL = "https://desafiobackend-drfv.onrender.com";
+const API_URL = "https://back-project-lbqr.onrender.com";
 
 export async function getUsers(token) {
   const response = await fetch(`${API_URL}/users`, {
@@ -13,21 +13,5 @@ export async function getUsers(token) {
   return json.data.users;
 }
 
-export async function create(email, password, name, profilePic) {
-  const response = await fetch(`${API_URL}/users`, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({
-      email,
-      password,
-      name,
-      profilePic,
-    }),
-  });
 
-  const json = response.json();
 
-  return json;
-}
