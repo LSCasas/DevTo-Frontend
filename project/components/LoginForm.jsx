@@ -68,7 +68,7 @@ export default function LoginForm() {
             onClick={handleShowHidePassword}
             className="text-xs text-black/50 cursor-pointer hover:text-black"
           >
-            {showPassword ? "😳 Hide " : "😃 Show"} Password
+            {showPassword ? "😳 Hide " : "😎 Show"} Password
           </span>
         </div>
         {notification.message && (
