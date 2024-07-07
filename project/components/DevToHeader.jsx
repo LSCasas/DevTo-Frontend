@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import { useRouter } from 'next/router';
+import Link from 'next/link';
 
 const DevToHeader = () => {
-  const router = useRouter();
   const [token, setToken] = useState('');
 
   useEffect(() => {
@@ -14,18 +13,6 @@ const DevToHeader = () => {
       }
     }
   }, []);
-
-  const handleLogin = () => {
-    router.push('/login');
-  };
-
-  const handleRegister = () => {
-    router.push('/register');
-  };
-
-  const handleCreatePost = () => {
-    router.push('/posts'); // Redirige a la ruta /posts
-  };
 
   return (
     <header className="bg-white shadow-md sticky top-0 z-50">
@@ -56,34 +43,31 @@ const DevToHeader = () => {
         {/* Search */}
         <div className="flex-1 ml-4 md:ml-8">
           <div className="relative w-1/2">
-           
-      
+            {/* Aquí puedes agregar un componente de búsqueda si es necesario */}
           </div>
         </div>
         {/* Auth Links */}
         <div className="flex items-center ml-auto space-x-4">
           {/* Conditional rendering based on token */}
           {token ? (
-            <button
-              className=""
-              onClick={handleCreatePost}
-            >
-            
-            </button>
+            <Link href="/posts">
+              <a className="text-blue-700 border border-blue-700 px-4 py-2 rounded-md hover:bg-blue-700 hover:text-white transition-colors duration-300">
+                Create Post
+              </a>
+            </Link>
           ) : (
             <>
               {/* Mobile Account and Login */}
               <span className="hidden md:flex">
-                <button className="text-gray-700 hover:text-blue-700" onClick={handleLogin}>
-                  Log in
-                </button>
+                <Link href="/login">
+                  <a className="text-gray-700 hover:text-blue-700">Log in</a>
+                </Link>
               </span>
-              <button
-                className="text-blue-700 border border-blue-700 px-4 py-2 rounded-md hover:bg-blue-700 hover:text-white transition-colors duration-300"
-                onClick={handleRegister}
-              >
-                Create account
-              </button>
+              <Link href="/register">
+                <a className="text-blue-700 border border-blue-700 px-4 py-2 rounded-md hover:bg-blue-700 hover:text-white transition-colors duration-300">
+                  Create account
+                </a>
+              </Link>
             </>
           )}
         </div>
@@ -93,3 +77,4 @@ const DevToHeader = () => {
 };
 
 export default DevToHeader;
+

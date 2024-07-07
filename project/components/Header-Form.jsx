@@ -1,6 +1,7 @@
 import React from 'react';
 import Link from 'next/link'; // Importar Link de Next.js para manejar las rutas
 
+
 const HeaderForm = () => {
   return (
     <header className="header-form bg-none py-4 px-6 shadow text-black">

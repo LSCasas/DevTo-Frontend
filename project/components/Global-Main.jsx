@@ -1,12 +1,13 @@
 import React from 'react';
+import Link from 'next/link';
 
 const Global = ({ posts, users }) => {
-  // Función para encontrar el nombre de usuario por su id
-  const findUsernameById = (userId) => {
-    if (!users) return 'Unknown User'; // Manejar caso donde users es undefined
+  const randomNames = ["John Doe", "Jane Smith", "Alice Johnson", "Bob Brown", "Charlie Davis"];
 
-    const user = users.find(user => user._id === userId);
-    return user ? user.username : 'Unknown User';
+  // Función para obtener un nombre aleatorio
+  const getRandomName = () => {
+    const randomIndex = Math.floor(Math.random() * randomNames.length);
+    return randomNames[randomIndex];
   };
 
   return (
@@ -15,13 +16,13 @@ const Global = ({ posts, users }) => {
         <nav>
           <ul className="flex">
             <li className="bg-transparent overflow-hidden m-1 p-2 rounded-lg">
-              <b><a href="#" className="text-black">Relevant</a></b>
+              <b><span className="text-black">Relevant</span></b>
             </li>
             <li className="bg-transparent overflow-hidden m-1 p-2 rounded-lg">
-              <a href="#" className="text-black">Latest</a>
+              <span className="text-black">Latest</span>
             </li>
             <li className="bg-transparent overflow-hidden m-1 p-2 rounded-lg">
-              <a href="#" className="text-black">Top</a>
+              <span className="text-black">Top</span>
             </li>
           </ul>
         </nav>
@@ -43,7 +44,7 @@ const Global = ({ posts, users }) => {
               className={`bg-white text-black mb-8 p-4 rounded-lg ${index !== 0 ? 'mt-2' : ''}`}
               style={{ boxShadow: '0 0 0.25rem rgba(0, 0, 0, 0.1)' }}
             >
-              <div className="flex items-center mb-3">
+              <div className="flex items-center mb-2">
                 <div className="relative">
                   <img
                     className="rounded-md h-8"
@@ -51,15 +52,17 @@ const Global = ({ posts, users }) => {
                     alt="Avatar"
                   />
                 </div>
-                <div className="ml-12 text-gray-700 text-sm">
-                  <div>{findUsernameById(post.user)}</div> 
+                <div className="ml-4 text-gray-700 text-sm">
+                  <div>{getRandomName()}</div>
                   <div>{post.date}</div>
                 </div>
               </div>
 
               <div className="pl-4">
                 <div className="font-bold mb-1 text-xl text-gray-800 hover:text-blue-600 cursor-pointer">
-                  <a href={`/post/${post._id}`}>{post.title}</a>
+                  <Link href={`/post/${post._id}`} legacyBehavior>
+                    <a>{post.title}</a>
+                  </Link>
                 </div>
                 
                 <div className="flex justify-between items-center text-sm text-gray-700">
@@ -137,6 +140,10 @@ const Global = ({ posts, users }) => {
 };
 
 export default Global;
+
+
+
+
 
 
 
