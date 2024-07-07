@@ -61,7 +61,7 @@ const HeaderMain = () => {
           />
         </div>
         {/* Search */}
-        <div className="flex-1 ml-4 md:ml-8 text-black">
+        <div className="flex-1 ml-4 md:ml-8 text-black hidden md:flex">
           <div className="relative w-1/2">
             <input
               type="text"
@@ -88,13 +88,13 @@ const HeaderMain = () => {
           {token ? (
             <>
               <button
-                className="bg-blue-500 hover:bg-blue-700 text-white px-4 py-2 rounded-md transition-colors duration-300"
+                className="bg-blue-500 hover:bg-blue-700 text-white px-2 py-1 rounded-md text-xs transition-colors duration-300"
                 onClick={handleCreatePost}
               >
                 Create post
               </button>
               <button
-                className="text-blue-700 border border-blue-700 px-4 py-2 rounded-md hover:bg-blue-700 hover:text-white transition-colors duration-300"
+                className="text-blue-700 border border-blue-700 px-2 py-1 rounded-md text-xs hover:bg-blue-700 hover:text-white transition-colors duration-300"
                 onClick={handleLogout}
               >
                 Log out
@@ -103,7 +103,7 @@ const HeaderMain = () => {
               <img
                 src="https://api.dicebear.com/9.x/thumbs/svg" // URL de la imagen descargada
                 alt="Log out"
-                className="h-9 w-9 ml-2 rounded-full"
+                className="h- w-9 ml-2 rounded-full"
               />
             </>
           ) : (
@@ -115,7 +115,7 @@ const HeaderMain = () => {
                 </button>
               </span>
               <button
-                className="text-blue-700 border border-blue-700 px-4 py-2 rounded-md hover:bg-blue-700 hover:text-white transition-colors duration-300"
+                className="text-blue-700 border border-blue-700 px-2 py-1 rounded-md text-xs hover:bg-blue-700 hover:text-white transition-colors duration-300"
                 onClick={handleRegister}
               >
                 Create account
