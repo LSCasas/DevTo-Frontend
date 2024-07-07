@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { useRouter } from 'next/router';
 import clsx from 'clsx';
-import { login } from '../api/login';
+import { login } from '../api/api';
 
 export default function LoginForm() {
   const { register, handleSubmit, formState: { errors }, setError } = useForm();

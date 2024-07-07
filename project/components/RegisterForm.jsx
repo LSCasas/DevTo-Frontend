@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useRouter } from "next/router";
-import { createUser } from "../api/createUser";
+import { createUser } from "../api/api";
 
 export default function RegisterForm() {
   const router = useRouter();

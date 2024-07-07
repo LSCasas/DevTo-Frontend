@@ -13,11 +13,11 @@ export default function CreatePost() {
     if (token) {
       try {
         const users = await getUsers(token); // Llama a getUsers con el token
-        const user = users.find(u => u.email === email);
+        const user = users.find(users => users.email === email);
 
         if (user) {
           await newPost(data.title, data.img, data.text, user._id, token);
-          router.push("/main");
+          router.push("/");
         } else {
           console.error("User not found");
         }
@@ -74,6 +74,113 @@ export default function CreatePost() {
     </form>
   );
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

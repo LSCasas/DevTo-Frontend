@@ -1,43 +1,49 @@
 const API_URL = 'https://back-project-lbqr.onrender.com';
 
-export async function registerUser({ profilePic, name, userName, email, password }) {
-  const res = await fetch(`${API_URL}/users`, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({
-      profilePic,
-      name,
-      userName,
-      email,
-      password,
-    })
-  });
 
-  if (!res.ok) {
-    throw new Error('Error al registrar el usuario');
+
+// REGISTER
+//CREATE USER 
+export async function createUser(data) {
+    const res = await fetch(`${API_URL}/users`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(data),
+    });
+    const json = await res.json();
+    return json.data;
   }
 
-  return res.json();
-}
 
+// LOGIN 
 export async function login(email, password) {
-  const res = await fetch(`${API_URL}/auth/login`, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({
-      email,
-      password,
-    }),
-  });
+  try {
+    const response = await fetch(`${API_URL}/auth/login`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        email,
+        password,
+      }),
+    });
 
-  const json = await res.json();
-  return json.data.token;
+    if (!response.ok) {
+      throw new Error('Network response was not ok');
+    }
+
+    const json = await response.json();
+    return json;
+  } catch (error) {
+    console.error('Error in login request:', error);
+    throw new Error('Error in login request. Please try again later.');
+  }
 }
 
+// GET POSTS
 export async function getPosts() {
   const res = await fetch(`${API_URL}/post`, {
     method: "GET",
@@ -47,6 +53,8 @@ export async function getPosts() {
   return json.data.posts;
 }
 
+
+// NEW POST
 export async function newPost(title, image, body, user, token) {
   const response = await fetch(`${API_URL}/post`, {
     method: "POST",
@@ -66,15 +74,9 @@ export async function newPost(title, image, body, user, token) {
   return json;
 }
 
-export async function getPostByID(id) {
-  const response = await fetch(`${API_URL}/post/${id}`, {
-    method: "GET",
-  });
 
-  const json = await response.json();
-  return json;
-}
 
+// GET USERS BY ID 
 export async function getUserByID(id) {
   const response = await fetch(`${API_URL}/users/${id}`, {
     method: "GET",
@@ -84,6 +86,8 @@ export async function getUserByID(id) {
   return json;
 }
 
+
+// GET USERS
 export async function getUsers(token) {
   const res = await fetch(`${API_URL}/users`, {
     method: "GET",
