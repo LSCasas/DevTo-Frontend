@@ -19,9 +19,10 @@ To get started with the project, follow these steps:
    git clone <repository-url>
    cd <project-directory>
 
-   2. Install dependencies:
-  npm install
 
+2. Install dependencies:
+   ```bash
+   npm install
 
 3. Start the development server:
   npm run dev
