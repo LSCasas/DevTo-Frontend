@@ -63,6 +63,17 @@ const DetailPost = () => {
         </div>
       </div>
 
+      <div className="mt-8 max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
+        <div className="mt-8 flex items-start bg-none text-black p-4 rounded-lg ">
+          <div className="flex items-center space-x-4">
+            <div>
+              <p className="font-bold text-2xl">Comments 3</p>
+            
+            </div>
+          </div>
+        </div>
+      </div>
+
       {/* Sección de comentarios */}
       <div className="mt-8 max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
         <div className="mt-8 flex items-start bg-white text-black p-4 rounded-lg shadow-md">
