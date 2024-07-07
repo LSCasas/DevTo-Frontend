@@ -5,6 +5,7 @@ import { toast } from 'sonner';
 import clsx from 'clsx';
 import { useState } from 'react';
 import { login } from '../api/login';
+import Link from 'next/link';
 
 export default function LoginForm() {
   const { register, handleSubmit, formState: { errors }, setError } = useForm();
@@ -86,6 +87,7 @@ export default function LoginForm() {
     </div>
   );
 }
+
 
 
 

@@ -27,6 +27,13 @@ const HeaderMain = () => {
     router.push('/posts'); // Redirige a la ruta /posts
   };
 
+  const handleLogout = () => {
+    localStorage.removeItem('token');
+    localStorage.removeItem('email');
+    // Redirigir a la página de inicio de sesión u otra página relevante después del logout
+    router.push('/login');
+  };
+
   return (
     <header className="bg-white shadow-md sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8 flex items-center h-16">
@@ -79,12 +86,26 @@ const HeaderMain = () => {
         <div className="flex items-center ml-auto space-x-4">
           {/* Conditional rendering based on token */}
           {token ? (
-            <button
-              className="bg-blue-500 hover:bg-blue-700 text-white px-4 py-2 rounded-md transition-colors duration-300"
-              onClick={handleCreatePost}
-            >
-              Create post
-            </button>
+            <>
+              <button
+                className="bg-blue-500 hover:bg-blue-700 text-white px-4 py-2 rounded-md transition-colors duration-300"
+                onClick={handleCreatePost}
+              >
+                Create post
+              </button>
+              <button
+                className="text-blue-700 border border-blue-700 px-4 py-2 rounded-md hover:bg-blue-700 hover:text-white transition-colors duration-300"
+                onClick={handleLogout}
+              >
+                Log out
+              </button>
+              {/* Image icon */}
+              <img
+                src="https://api.dicebear.com/9.x/thumbs/svg" // URL de la imagen descargada
+                alt="Log out"
+                className="h-9 w-9 ml-2 rounded-full"
+              />
+            </>
           ) : (
             <>
               {/* Mobile Account and Login */}
@@ -108,6 +129,7 @@ const HeaderMain = () => {
 };
 
 export default HeaderMain;
+
 
 
 
