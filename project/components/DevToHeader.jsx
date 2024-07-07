@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 
-const HeaderMain = () => {
+const DevToHeader = () => {
   const router = useRouter();
   const [token, setToken] = useState('');
 
@@ -54,25 +54,10 @@ const HeaderMain = () => {
           />
         </div>
         {/* Search */}
-        <div className="flex-1 ml-4 md:ml-8 text-black">
+        <div className="flex-1 ml-4 md:ml-8">
           <div className="relative w-1/2">
-            <input
-              type="text"
-              placeholder="Search..."
-              className="block w-full h-10 px-3 py-2 text-sm rounded-md border border-gray-300 shadow-sm focus:outline-none focus:border-blue-500"
-            />
-            <button className="absolute right-0 top-0 mt-1 mr-2">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                aria-hidden="true"
-                className="fill-current text-gray-400"
-              >
-                <path d="M18.031 16.617l4.283 4.282-1.415 1.415-4.282-4.283A8.96 8.96 0 0111 20c-4.968 0-9-4.032-9-9s4.032-9 9-9 9 4.032 9 9a8.96 8.96 0 01-1.969 5.617zm-2.006-.742A6.977 6.977 0 0018 11c0-3.868-3.133-7-7-7-3.868 0-7 3.132-7 7 0 3.867 3.132 7 7 7a6.977 6.977 0 004.875-1.975l.15-.15z" />
-              </svg>
-            </button>
+           
+      
           </div>
         </div>
         {/* Auth Links */}
@@ -80,10 +65,10 @@ const HeaderMain = () => {
           {/* Conditional rendering based on token */}
           {token ? (
             <button
-              className="bg-blue-500 hover:bg-blue-700 text-white px-4 py-2 rounded-md transition-colors duration-300"
+              className=""
               onClick={handleCreatePost}
             >
-              Create post
+            
             </button>
           ) : (
             <>
@@ -107,10 +92,4 @@ const HeaderMain = () => {
   );
 };
 
-export default HeaderMain;
-
-
-
-
-
-
+export default DevToHeader;

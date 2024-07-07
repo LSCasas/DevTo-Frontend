@@ -1,9 +1,11 @@
 import FormularioPost from "@/components/Form-Post";
 import HeaderForm from "@/components/Header-Form";
-import BotonPublicar from "@/components/Publish-Botton";
-
+import useAuth from "@/hook/useAuth";
 
 const PaginaFormulario = () => {
+useAuth()
+
+
   return (
     <div className="bg-gray-100 min-h-screen">
       <HeaderForm />

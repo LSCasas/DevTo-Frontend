@@ -15,13 +15,13 @@ const Global = ({ posts, users }) => {
         <nav>
           <ul className="flex">
             <li className="bg-transparent overflow-hidden m-1 p-2 rounded-lg">
-              <b><a href="index.html" className="text-black">Relevant</a></b>
+              <b><a href="#" className="text-black">Relevant</a></b>
             </li>
             <li className="bg-transparent overflow-hidden m-1 p-2 rounded-lg">
-              <a href="./view/latest.html" className="text-black">Latest</a>
+              <a href="#" className="text-black">Latest</a>
             </li>
             <li className="bg-transparent overflow-hidden m-1 p-2 rounded-lg">
-              <a href="./view/top.html" className="text-black">Top</a>
+              <a href="#" className="text-black">Top</a>
             </li>
           </ul>
         </nav>
@@ -59,7 +59,7 @@ const Global = ({ posts, users }) => {
 
               <div className="pl-4">
                 <div className="font-bold mb-1 text-xl text-gray-800 hover:text-blue-600 cursor-pointer">
-                  {post.title}
+                  <a href={`/post/${post._id}`}>{post.title}</a>
                 </div>
                 
                 <div className="flex justify-between items-center text-sm text-gray-700">
@@ -137,6 +137,9 @@ const Global = ({ posts, users }) => {
 };
 
 export default Global;
+
+
+
 
 
 

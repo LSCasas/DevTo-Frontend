@@ -75,6 +75,15 @@ export async function getPostByID(id) {
   return json;
 }
 
+export async function getUserByID(id) {
+  const response = await fetch(`${API_URL}/users/${id}`, {
+    method: "GET",
+  });
+
+  const json = await response.json();
+  return json;
+}
+
 export async function getUsers(token) {
   const res = await fetch(`${API_URL}/users`, {
     method: "GET",
