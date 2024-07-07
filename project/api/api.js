@@ -43,6 +43,7 @@ export async function login(email, password) {
   }
 }
 
+//CREATE POST
 // GET POSTS
 export async function getPosts() {
   const res = await fetch(`${API_URL}/post`, {
@@ -79,6 +80,21 @@ export async function newPost(title, image, body, user, token) {
 // GET USERS BY ID 
 export async function getUserByID(id) {
   const response = await fetch(`${API_URL}/users/${id}`, {
+    method: "GET",
+  });
+
+  const json = await response.json();
+  return json;
+}
+
+
+
+
+
+
+// GET USERS BY ID 
+export async function getPostByID(id) {
+  const response = await fetch(`${API_URL}/post/${id}`, {
     method: "GET",
   });
 

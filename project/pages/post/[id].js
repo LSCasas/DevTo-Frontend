@@ -1,18 +1,46 @@
-// pages/posts/[postId].jsx
-import React from 'react';
-import DetailPost from '../../components/DetailPost'; // Ajusta la ruta según la ubicación real de DetailPost.jsx
+// pages/post/[id].js (o pages/post/[id].jsx)
 
-const PostDetailPage = ({ postId }) => {
-  // Aquí podrías obtener postId desde el contexto de Next.js o desde otras fuentes (ej. query params)
+import React, { useEffect, useState } from 'react';
+import { useRouter } from 'next/router';
+import DetailPost from '../../components/DetailPost'; // Ajusta la ruta según la ubicación real de DetailPost.jsx
+import { getPostByID } from '../../api/api'; // Ajusta la ruta según la ubicación real de tu función de API
+
+const PostDetailPage = () => {
+  const router = useRouter();
+  const { id } = router.query;
+  const [post, setPost] = useState(null);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    const fetchPost = async () => {
+      try {
+        const fetchedPost = await getPostByID(id);
+        setPost(fetchedPost);
+      } catch (error) {
+        setError(error.message);
+      }
+    };
+
+    if (id) {
+      fetchPost();
+    }
+  }, [id]);
+
+  if (error) {
+    return <div>Error: {error}</div>;
+  }
+
+  if (!post) {
+    return <div>Loading...</div>;
+  }
+
   return (
     <div>
       <h1>Post Detail</h1>
-      <DetailPost postId={postId} />
+      <DetailPost post={post} />
     </div>
   );
 };
 
 export default PostDetailPage;
-
-// Nota: Asegúrate de que postId esté disponible en el contexto de esta página dinámica.
 

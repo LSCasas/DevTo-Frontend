@@ -1,6 +1,6 @@
 const API_URL = 'https://back-project-lbqr.onrender.com';
 
-export async function getProduct(id) {
+export async function getPosts(id) {
     const token = localStorage.getItem("token")
     const res = await fetch(`${API_URL}/post/${id}`, {
         method: "GET",

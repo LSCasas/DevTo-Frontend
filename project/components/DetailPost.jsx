@@ -1,26 +1,32 @@
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
-import { getProduct } from '../api/getPostByID'; // Asegúrate de que la ruta de importación sea correcta
+import { getPosts } from '@/api/getPostByID';
+
 
 const DetailPost = () => {
   const router = useRouter();
-  const { postId } = router.query;
+  const { id } = router.query;
   const [post, setPost] = useState(null);
   const [error, setError] = useState(null);
+  const [token, setToken] = useState('');
 
+
+  
   useEffect(() => {
-    if (postId) {
-      const fetchPost = async () => {
-        try {
-          const fetchedPost = await getProduct(postId);
-          setPost(fetchedPost);
-        } catch (error) {
-          setError(error.message);
+    const fetchPost = async () => {
+      try {
+        if (id) {
+          const fetchedPost = await getPosts(id);
+          setPost(fetchedPost.data); // Guarda solo los datos del post en el estado
         }
-      };
-      fetchPost();
-    }
-  }, [postId]);
+      } catch (error) {
+        console.error('Error fetching post:', error);
+        setError('Error fetching post. Please try again later.');
+      }
+    };
+  
+    fetchPost();
+  }, [id]);
 
   if (error) {
     return <div>Error: {error}</div>;
@@ -33,13 +39,17 @@ const DetailPost = () => {
   return (
     <div>
       <h1>{post.title}</h1>
-      <p>{post.content}</p>
+      <img src={post.image} alt={post.title} style={{ maxWidth: '100%' }} />
+      <p>{post.body}</p>
       {/* Otros detalles del post */}
     </div>
   );
 };
 
 export default DetailPost;
+
+
+
 
 
 
