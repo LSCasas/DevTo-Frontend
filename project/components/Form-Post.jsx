@@ -17,7 +17,7 @@ export default function CreatePost() {
 
         if (user) {
           await newPost(data.title, data.img, data.text, user._id, token);
-          router.push("/");
+          router.push("/main");
         } else {
           console.error("User not found");
         }

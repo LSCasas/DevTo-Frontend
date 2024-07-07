@@ -1,10 +1,12 @@
+import React from 'react';
 import HeaderLogin from "@/components/Header-Login";
 import SocialLoginButtons from "@/components/SocialLoginButtons";
 import LoginForm from "@/components/LoginForm";
 import LoggedIn from "@/hook/useAuthLogIn";
 
 export default function LoginPage() {
-  LoggedIn()
+  LoggedIn();
+
   return (
     <div className="flex flex-col items-center bg-white min-h-screen">
       <HeaderLogin />
@@ -17,5 +19,8 @@ export default function LoginPage() {
     </div>
   );
 }
+
+
+
 
 

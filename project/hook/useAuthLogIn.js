@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { useRouter } from 'next/router';
-import { toast } from 'react-toastify';
+import { Toaster, toast } from 'sonner';
 
 export default function LoggedIn() {
   const router = useRouter();
@@ -13,4 +13,10 @@ export default function LoggedIn() {
       router.push('/main');
     }
   }, [router]);
+
+  return (
+    <Toaster position="top-right" reverseOrder={false} />
+  );
 }
+
+

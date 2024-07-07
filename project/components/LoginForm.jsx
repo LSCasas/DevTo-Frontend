@@ -1,40 +1,33 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { useRouter } from 'next/router';
-import { toast } from 'sonner';
 import clsx from 'clsx';
-import { useState } from 'react';
 import { login } from '../api/login';
-import Link from 'next/link';
 
 export default function LoginForm() {
   const { register, handleSubmit, formState: { errors }, setError } = useForm();
   const router = useRouter();
   const [showPassword, setShowPassword] = useState(false);
+  const [notification, setNotification] = useState({ message: '', type: '' });
 
   const onSubmit = async (data) => {
     try {
       const result = await login(data.email, data.password);
 
-      console.log(result); // Log para verificar la respuesta del servidor
-
       if (result.success && result.data.token) {
         localStorage.setItem('token', result.data.token);
-        localStorage.setItem('email', data.email); // Almacenar email para comparaciones futuras
-        toast.success('Bienvenido');
-        router.push('/main');
+        localStorage.setItem('email', data.email);
+        setNotification({ message: 'Welcome', type: 'success' });
+        setTimeout(() => {
+          setNotification({ message: '', type: '' });
+          router.push('/main');
+        }, 1000); 
       } else {
-        if (result.message === 'Incorrect password') {
-          setError('password', { type: 'manual', message: 'Contraseña incorrecta. Por favor, intenta de nuevo.' });
-        } else if (result.message === 'User not found') {
-          setError('email', { type: 'manual', message: 'Correo electrónico incorrecto. Por favor, intenta de nuevo.' });
-        } else {
-          setError('form', { type: 'manual', message: 'Correo electrónico y contraseña incorrectos. Por favor, intenta de nuevo.' });
-        }
+        setNotification({ message: 'Incorrect credentials', type: 'error' });
       }
     } catch (error) {
-      setError('form', { type: 'manual', message: 'Error en el servidor. Por favor, intente de nuevo más tarde.' });
-      console.error('Error en el manejo de la solicitud:', error);
+      setNotification({ message: 'Incorrect credentials', type: 'error' });
+      console.error('Error handling request:', error);
     }
   };
 
@@ -57,7 +50,7 @@ export default function LoginForm() {
             id="email"
             name="email"
             className={clsx("text-black mt-1 block w-full rounded-md border-black shadow-sm", { 'border-red-500': errors.email })}
-            {...register('email', { required: 'Correo electrónico es requerido' })}
+            {...register('email', { required: 'Email is required' })}
           />
           {errors.email && <p className="text-red-500 text-sm mt-1">{errors.email.message}</p>}
         </div>
@@ -68,17 +61,21 @@ export default function LoginForm() {
             id="password"
             name="password"
             className={clsx("text-black mt-1 block w-full rounded-md border-black shadow-sm", { 'border-red-500': errors.password })}
-            {...register('password', { required: 'Contraseña es requerida' })}
+            {...register('password', { required: 'Password is required' })}
           />
           {errors.password && <p className="text-red-500 text-sm mt-1">{errors.password.message}</p>}
           <span
             onClick={handleShowHidePassword}
             className="text-xs text-black/50 cursor-pointer hover:text-black"
           >
-            {showPassword ? "🙈 Ocultar " : "🙉 Mostrar"} Contraseña
+            {showPassword ? "😳 Hide " : "😃 Show"} Password
           </span>
         </div>
-        {errors.form && <div className="text-red-500 mb-4">{errors.form.message}</div>}
+        {notification.message && (
+          <div className={`p-2 mb-4 text-white rounded ${notification.type === 'success' ? 'bg-green-500' : 'bg-red-500'}`}>
+            {notification.message}
+          </div>
+        )}
         <div className="text-center">
           <button type="submit" className="w-full py-2 px-4 bg-gray-800 text-white rounded-md hover:bg-gray-700">Log in</button>
           <button type="button" onClick={handleRegister} className="mt-4 w-full py-2 px-4 bg-blue-500 text-white rounded-md hover:bg-blue-700">Register</button>
@@ -87,6 +84,11 @@ export default function LoginForm() {
     </div>
   );
 }
+
+
+
+
+
 
 
 

@@ -1,7 +1,11 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
+import { useRouter } from "next/router";
 import { createUser } from "../api/createUser";
 
 export default function RegisterForm() {
+  const router = useRouter();
+  const [notification, setNotification] = useState({ message: '', type: '' });
+
   useEffect(() => {
     const registerForm = document.getElementById("registerForm");
 
@@ -21,19 +25,22 @@ export default function RegisterForm() {
         console.log("Response:", response); // Debugging: Log response to console
 
         if (response && response.user) {
-          // Acceder a los datos del usuario
+          // Access user data
           const { name, email } = response.user;
           console.log("User:", name, email);
 
-          // Redirigir a la página de inicio de sesión
-          window.location.href = "/login";
+          setNotification({ message: 'Registration successful', type: 'success' });
+          setTimeout(() => {
+            setNotification({ message: '', type: '' });
+            router.push('/login');
+          }, 1000); // Redirect to login after 1 second
         } else {
           console.error("Registration error:", response);
-          alert(response?.message || "Error en el registro"); // Mostrar mensaje de error del servidor
+          setNotification({ message: response?.message || 'Error en el registro', type: 'error' });
         }
       } catch (error) {
-        console.error("Error en la solicitud:", error);
-        alert("Error en el servidor. Por favor, intente de nuevo más tarde.");
+        console.error("Request error:", error);
+        setNotification({ message: 'Error en la solicitud', type: 'error' });
       }
     };
 
@@ -65,12 +72,19 @@ export default function RegisterForm() {
           <input type="password" id="password" name="password" className="text-black mt-1 block w-full rounded-md border-black shadow-sm" required />
         </div>
         <div className="text-center">
-          <button type="submit" className="w-full py-2 px-4 bg-gray-800 text-white rounded-md hover:bg-gray-700">Sign in</button>
+          <button type="submit" className="w-full py-2 px-4 bg-gray-800 text-white rounded-md hover:bg-gray-700">Sign up</button>
         </div>
       </form>
+      {notification.message && (
+        <div className={`p-2 mb-4 text-white rounded ${notification.type === 'success' ? 'bg-green-500' : 'bg-red-500'}`}>
+          {notification.message}
+        </div>
+      )}
     </div>
   );
 }
+
+
 
 
 
