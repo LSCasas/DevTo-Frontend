@@ -2,7 +2,7 @@ import React from 'react';
 
 const Sidebar = () => {
   return (
-    <div className="flex-2 border-none p-5 hidden lg:inline-block md:inline-block w-1/3 pt-5 pr-28 -mr-8">
+    <div className="hidden md:flex-2 border-none p-5 lg:inline-block md:inline-block w-1/3 pt-5 pr-28 -mr-8">
       {/* Primera sección */}
       <section className="container1 text-black">
         <div className="bg-white rounded-lg shadow-inner">
@@ -95,5 +95,6 @@ const Sidebar = () => {
 };
 
 export default Sidebar;
+
 
 
