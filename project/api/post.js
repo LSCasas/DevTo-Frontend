@@ -6,7 +6,7 @@ export async function getPosts() {
     method: 'GET',
   });
   const json = await response.json();
-  return json; // Retorna directamente el arreglo de posts
+  return json; 
 }
 
 export async function createPost(title, image, body, user, token) {
@@ -24,7 +24,7 @@ export async function createPost(title, image, body, user, token) {
     }),
   });
   const json = await response.json();
-  return json; // Retorna la respuesta del servidor
+  return json; 
 }
 
 

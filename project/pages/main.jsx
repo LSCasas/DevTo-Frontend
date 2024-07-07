@@ -3,7 +3,7 @@ import Aside from '@/components/Aside-Main';
 import Global from '@/components/Global-Main';
 import HeaderMain from '@/components/Header-Main';
 import Sidebar from '@/components/Sidebar-Main';
-import { getPosts } from '@/api/post'; // Corregido: importa getPosts desde api/posts
+import { getPosts } from '@/api/post'; 
 
 const App = () => {
   const [posts, setPosts] = useState([]);
@@ -11,9 +11,9 @@ const App = () => {
   useEffect(() => {
     const fetchPosts = async () => {
       try {
-        const response = await getPosts(); // Corregido: llama a getPosts en lugar de getpost
+        const response = await getPosts(); 
         if (response.success) {
-          setPosts(response.data); // Asigna el arreglo de posts a la variable de estado
+          setPosts(response.data); 
         } else {
           console.error("Error al obtener posts:", response.message);
         }
@@ -30,7 +30,7 @@ const App = () => {
       <HeaderMain />
       <div className="lg:flex">
         <Aside />
-        <Global posts={posts} /> {/* Pasa los posts como prop al componente Global */}
+        <Global posts={posts} /> 
         <Sidebar />
       </div>
     </div>

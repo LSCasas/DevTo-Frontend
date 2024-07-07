@@ -1,6 +1,6 @@
 import { useForm } from "react-hook-form";
 import { useRouter } from "next/router";
-import { getUsers, newPost } from "@/api/api"; // Asegúrate de que la ruta a tu API esté correcta
+import { getUsers, newPost } from "@/api/api"; 
 
 export default function CreatePost() {
   const router = useRouter();
@@ -12,7 +12,7 @@ export default function CreatePost() {
 
     if (token) {
       try {
-        const users = await getUsers(token); // Llama a getUsers con el token
+        const users = await getUsers(token); 
         const user = users.find(users => users.email === email);
 
         if (user) {

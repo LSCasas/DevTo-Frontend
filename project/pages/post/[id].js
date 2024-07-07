@@ -2,8 +2,8 @@
 
 import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
-import DetailPost from '../../components/DetailPost'; // Ajusta la ruta según la ubicación real de DetailPost.jsx
-import { getPostByID } from '../../api/api'; // Ajusta la ruta según la ubicación real de tu función de API
+import DetailPost from '../../components/DetailPost'; 
+import { getPostByID } from '../../api/api'; 
 
 const PostDetailPage = () => {
   const router = useRouter();

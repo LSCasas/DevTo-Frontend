@@ -6,7 +6,7 @@ const HeaderMain = () => {
   const [token, setToken] = useState('');
 
   useEffect(() => {
-    // Verificar si localStorage está disponible (solo en el cliente)
+   
     if (typeof window !== 'undefined') {
       const storedToken = localStorage.getItem('token');
       if (storedToken) {
@@ -24,13 +24,13 @@ const HeaderMain = () => {
   };
 
   const handleCreatePost = () => {
-    router.push('/posts'); // Redirige a la ruta /posts
+    router.push('/posts'); 
   };
 
   const handleLogout = () => {
     localStorage.removeItem('token');
     localStorage.removeItem('email');
-    // Redirigir a la página de inicio de sesión u otra página relevante después del logout
+   
     router.push('/login');
   };
 
@@ -101,7 +101,7 @@ const HeaderMain = () => {
               </button>
               {/* Image icon */}
               <img
-                src="https://api.dicebear.com/9.x/thumbs/svg" // URL de la imagen descargada
+                src="https://api.dicebear.com/9.x/thumbs/svg" 
                 alt="Log out"
                 className="h- w-9 ml-2 rounded-full"
               />

@@ -21,12 +21,12 @@ export default function PostLayout({ posts }) {
   }, []);
 
   function handleLatest() {
-    // posts.map((post) => console.log(post.createdAt));
+   
 
     const latest = [...posts];
     latest.sort((a, b) => new Date(a.createdAt) - new Date(b.createdAt));
     console.log(latest);
-    // return latestPost;
+   
   }
 
   return (

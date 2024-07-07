@@ -14,7 +14,7 @@ const DetailPost = () => {
       try {
         if (id) {
           const fetchedPost = await getPosts(id);
-          setPost(fetchedPost.data); // Guarda solo los datos del post en el estado
+          setPost(fetchedPost.data); 
         }
       } catch (error) {
         console.error('Error fetching post:', error);
@@ -25,7 +25,7 @@ const DetailPost = () => {
     if (id) {
       fetchPost();
     }
-  }, [id]); // Se ejecuta solo cuando id cambia
+  }, [id]); 
 
   if (error) {
     return <div>Error: {error}</div>;

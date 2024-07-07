@@ -4,7 +4,7 @@ import Link from 'next/link';
 const Global = ({ posts, users }) => {
   const randomNames = ["John Doe", "Jane Smith", "Alice Johnson", "Bob Brown", "Charlie Davis"];
 
-  // Función para obtener un nombre aleatorio
+  
   const getRandomName = () => {
     const randomIndex = Math.floor(Math.random() * randomNames.length);
     return randomNames[randomIndex];

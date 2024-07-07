@@ -5,7 +5,7 @@ const DevToHeader = () => {
   const [token, setToken] = useState('');
 
   useEffect(() => {
-    // Verificar si localStorage está disponible (solo en el cliente)
+   
     if (typeof window !== 'undefined') {
       const storedToken = localStorage.getItem('token');
       if (storedToken) {
@@ -17,7 +17,7 @@ const DevToHeader = () => {
   return (
     <header className="bg-white shadow-md sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8 flex items-center h-16">
-        {/* Mobile Hamburger Button */}
+       
         <span className="inline-block md:hidden mr-2">
           <button className="p-2">
             <svg
@@ -43,7 +43,7 @@ const DevToHeader = () => {
         {/* Search */}
         <div className="flex-1 ml-4 md:ml-8">
           <div className="relative w-1/2">
-            {/* Aquí puedes agregar un componente de búsqueda si es necesario */}
+          
           </div>
         </div>
         {/* Auth Links */}

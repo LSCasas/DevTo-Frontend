@@ -11,13 +11,13 @@ const HeaderForm = () => {
           <div className="site-logo">
             <Link href="/main" passHref>
               <img
-                className="site-logo-img w-16 h-auto md:w-20 md:h-auto" // Aumenta el tamaño en pantallas móviles
+                className="site-logo-img w-16 h-auto md:w-20 md:h-auto" 
                 src="https://dev-to-uploads.s3.amazonaws.com/uploads/logos/resized_logo_UQww2soKuUsjaOGNB38o.png"
                 alt="DEV Community"
               />
             </Link>
           </div>
-          <div className="ml-2 hidden md:block"> {/* Oculta en pantallas pequeñas */}
+          <div className="ml-2 hidden md:block"> 
             <h3 className="text-lg font-semibold">Create Post</h3>
           </div>
         </div>
