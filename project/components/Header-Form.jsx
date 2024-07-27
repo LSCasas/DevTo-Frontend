@@ -6,7 +6,7 @@ const HeaderForm = () => {
     <header className="header-form bg-none py-4 px-6 shadow text-black">
       <div className="header-container flex items-center justify-between">
         
-        {/* División para el logo y texto */}
+      
         <div className="w-1/4 flex items-center ml-14">
           <div className="site-logo">
             <Link href="/main" passHref>
@@ -22,13 +22,13 @@ const HeaderForm = () => {
           </div>
         </div>
         
-        {/* División para Edit y Preview */}
+       
         <div className="w-1/4 flex items-center justify-center">
           <a className="text-black font-bold mr-4">Edit</a>
           <a className="text-black">Preview</a>
         </div>
         
-        {/* División para el botón con la imagen */}
+       
         <div className="w-1/4 flex items-center justify-end">
           <button className="btn-styles p-1">
             <Link href="/main" passHref>

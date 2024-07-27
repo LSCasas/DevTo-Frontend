@@ -1,7 +1,5 @@
 const API_URL = 'https://back-project-lbqr.onrender.com';
 
-
-
 // REGISTER
 //CREATE USER 
 export async function createUser(data) {
@@ -15,7 +13,6 @@ export async function createUser(data) {
     const json = await res.json();
     return json.data;
   }
-
 
 // LOGIN 
 export async function login(email, password) {
@@ -86,9 +83,6 @@ export async function getUserByID(id) {
   const json = await response.json();
   return json;
 }
-
-
-
 
 
 

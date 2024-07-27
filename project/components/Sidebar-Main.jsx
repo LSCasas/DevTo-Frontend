@@ -3,7 +3,7 @@ import React from 'react';
 const Sidebar = () => {
   return (
     <div className="hidden md:flex-2 border-none p-5 lg:inline-block md:inline-block w-1/3 pt-5 pr-28 -mr-8">
-      {/* Primera sección */}
+      {/* First section */}
       <section className="container1 text-black">
         <div className="bg-white rounded-lg shadow-inner">
           <div className="p-4 border-b border-gray-200">
@@ -37,7 +37,7 @@ const Sidebar = () => {
         </div>
       </section>
 
-      {/* Segunda sección */}
+      {/* Second section*/}
       <section className="container1 mt-4 text-black">
         <div className="bg-white rounded-lg shadow-inner">
           <div className="p-4 border-b border-gray-200">
@@ -55,7 +55,7 @@ const Sidebar = () => {
         </div>
       </section>
 
-      {/* Tercera sección */}
+      {/* Third section  */}
       <section className="container2 mt-4 text-black">
         <div className="border-b border-gray-200">
           <div className="p-4">
@@ -68,12 +68,12 @@ const Sidebar = () => {
             <div className="p-4 border-b border-gray-200">
               GitHub Readme: Responsive? 🤔 Animated? 🤯 Light and dark modes? 😱 You bet! 💪🏼
             </div>
-            {/* Otros enlaces omitidos por brevedad */}
+        
           </div>
         </div>
       </section>
 
-      {/* Cuarta sección */}
+      {/* Fourth section */}
       <section className="container2 mt-4 text-black">
         <div className="border-b border-gray-200">
           <div className="p-4">
@@ -86,7 +86,7 @@ const Sidebar = () => {
             <div className="p-4 border-b border-gray-200">
               Dino Tutorial
             </div>
-            {/* Otros enlaces omitidos por brevedad */}
+          
           </div>
         </div>
       </section>
