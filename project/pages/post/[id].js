@@ -30,13 +30,10 @@ const PostDetailPage = () => {
     return <div>Error: {error}</div>;
   }
 
-  if (!post) {
-    return <div>Loading...</div>;
-  }
+
 
   return (
     <div>
-      <h1>Post Detail</h1>
       <DetailPost post={post} />
     </div>
   );
