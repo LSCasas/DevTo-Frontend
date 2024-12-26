@@ -1,8 +1,8 @@
 
 
-# Devto replicata - API
+# Devto replicata - Frontend
 
-Devto replicata is my final challenge as part of the backend module in Kodemia bootcamp. This project aims to replicate the DevTo website, primarily using React components. Unlike traditional routing solutions, Next.js was utilized for its dynamic routing capabilities. Additionally, it integrates with the backend API developed during the backend challenge.
+Devto replicata is my final challenge as part of the React module in Kodemia bootcamp. This project aims to replicate the DevTo website, primarily using React components. Unlike traditional routing solutions, Next.js was utilized for its dynamic routing capabilities. Additionally, it integrates with the backend API developed during the backend challenge.
 
 ## Features
 
